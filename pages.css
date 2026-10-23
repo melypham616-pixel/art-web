@@ -30,6 +30,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; margin: 0; }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } .film { transition: none; } }
 
+/* Avoid one- or two-word orphan lines */
+h1, h2, h3, h4, h5, blockquote, figcaption, .eyebrow, .lede, .intro, .people-quote, .title-box p { text-wrap: balance; }
+p, dd, li, small { text-wrap: pretty; }
+
 /* ---------- Header + menu ---------- */
 header.top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--cream) 92%, transparent); backdrop-filter: blur(8px); }
 .top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 56px; border-bottom: 1px solid var(--line); }
