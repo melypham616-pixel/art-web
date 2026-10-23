@@ -213,7 +213,7 @@
   .color-grid figure:nth-child(2) img { object-position: 50% 30%; }
   .color-grid .kind { position: absolute; top: 12px; left: 12px; padding: 4px 11px; border-radius: 999px; background: rgba(251,249,244,.88); font-family: var(--serif); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); }
   .color-grid .cap { text-align: left; }
-  .color-grid .cap small { margin-left: 6px; font-style: italic; color: var(--ink-soft); }
+  .color-grid .cap small { display: block; margin-top: 2px; font-style: italic; color: var(--ink-soft); }
   .color-note { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
   .color-note p { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; margin: 0; max-width: 40ch; }
   .hex { display: flex; flex-wrap: wrap; gap: 8px 18px; align-content: center; }
@@ -322,7 +322,7 @@
 
   /* ---------- Kindness & Courage (documentary photos) ---------- */
   .people { padding: 104px 0; background: var(--cream-2); }
-  .people-quote { font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.4; text-align: center; max-width: 34ch; margin: -12px auto 56px; color: var(--ink); }
+  .people-quote { font-family: var(--display); font-style: italic; font-size: clamp(18px, 2.2vw, 26px); line-height: 1.4; text-align: center; max-width: none; text-wrap: balance; margin: -12px auto 56px; color: var(--ink); }
   .people-grid { columns: 3 300px; column-gap: 32px; }
   .story-card { break-inside: avoid; margin: 0 0 44px; }
   .story-card .ph { background: #d8d0c2; }
@@ -332,9 +332,14 @@
   .story-card .credit { font-family: var(--serif); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
   .story-card p { margin: 12px 0 0; font-size: 14px; line-height: 1.75; color: var(--ink-soft); }
 
+  @media (min-width: 900px) { .people-quote { white-space: nowrap; } }
   .credit-line { margin: 10px 0 0; text-align: right; font-family: var(--serif); font-size: 12px; color: var(--ink-soft); }
   .credit-line.dark { color: #9a8f82; }
   .full-page { display: inline-block; margin-top: 18px; }
+
+  /* Avoid one- or two-word orphan lines */
+  h1, h2, h3, h4, h5, blockquote, figcaption, .eyebrow, .lede, .intro, .people-quote, .title-box p { text-wrap: balance; }
+  p, dd, li, small { text-wrap: pretty; }
 
   /* reveal */
   .rv { opacity: 0; transform: translateY(18px); transition: opacity 1s ease, transform 1s ease; }
@@ -359,10 +364,10 @@
 </header>
 <div class="drawer" id="drawer">
   <nav>
-    <a href="little-things.html">Little Things</a>
-    <a href="colors-of-life.html">Colors of Life</a>
-    <a href="art-and-reflections.html">Art &amp; Reflections</a>
-    <a href="kindness-and-courage.html">Kindness &amp; Courage</a>
+    <a href="little-things">Little Things</a>
+    <a href="colors-of-life">Colors of Life</a>
+    <a href="art-and-reflections">Art &amp; Reflections</a>
+    <a href="kindness-and-courage">Kindness &amp; Courage</a>
   </nav>
 </div>
 
@@ -404,7 +409,7 @@
         <span class="eyebrow">Chapter I</span>
         <h2>Little Things</h2>
         <p>Photo collections, gathered by theme. Small objects and quiet corners that hold a whole story.</p>
-        <a class="more-link full-page" href="little-things.html">Open the full collection ↗</a>
+        <a class="more-link full-page" href="little-things">Open the full collection ↗</a>
       </div>
       <div class="chips" role="group" aria-label="Filter collections">
         <button aria-pressed="true" data-f="all">All</button>
@@ -555,7 +560,7 @@
           <h2>Colors of Life</h2>
         </div>
         <p>Photo sets arranged by palette — the colors a place leaves behind after you’ve gone. Choose a palette to see the frames that share it.</p>
-        <a class="more-link full-page" href="colors-of-life.html">See all four palettes ↗</a>
+        <a class="more-link full-page" href="colors-of-life">See all four palettes ↗</a>
       </div>
       <div class="palettes" id="palettes" role="group" aria-label="Choose a palette"></div>
       <div class="color-grid" id="color-grid"></div>
@@ -573,7 +578,7 @@
         <span class="eyebrow">Chapter V</span>
         <h2>Art That Makes Us Think</h2>
         <p>Famous works that found something extraordinary in ordinary life — and a few lines on what each one makes me feel.</p>
-        <a class="more-link full-page" href="art-and-reflections.html">Visit the exhibition ↗</a>
+        <a class="more-link full-page" href="art-and-reflections">Visit the exhibition ↗</a>
       </div>
       <div class="exhibits">
         <figure class="exhibit rv">
@@ -658,7 +663,7 @@
         <span class="eyebrow">Chapter VI</span>
         <h2>Kindness &amp; Courage</h2>
         <p>Photographs of ordinary people in hard times — of sharing, holding on, and carrying on.</p>
-        <a class="more-link full-page" href="kindness-and-courage.html">Read the full series ↗</a>
+        <a class="more-link full-page" href="kindness-and-courage">Read the full series ↗</a>
       </div>
       <p class="people-quote rv">When life had very little to give, people still found something to give each other.</p>
       <div class="people-grid">
@@ -892,9 +897,25 @@
     document.getElementById("color-text").textContent = p.text;
     document.getElementById("color-hex").innerHTML = p.colors.map(c => `<span><i style="background:${c}"></i>${c.toUpperCase()}</span>`).join("");
     palWrap.querySelectorAll(".palette").forEach(b => b.setAttribute("aria-pressed", b.dataset.i == i));
+    if (typeof noOrphans === "function") noOrphans(document.getElementById("colors"));
   }
   palWrap.addEventListener("click", e => { const b = e.target.closest(".palette"); if (b) showPalette(+b.dataset.i); });
   showPalette(0);
+
+  // Keep the last three words of each text block together so no line ends with only one or two words.
+  function noOrphans(root = document) {
+    root.querySelectorAll("p, dd, blockquote, figcaption, h1, h2, h3, h4, li").forEach(el => {
+      const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let last = null, n;
+      while ((n = walk.nextNode())) if (n.data.trim()) last = n;
+      if (!last) return;
+      const words = last.data.trimEnd().split(" ");
+      if (words.length < 4) return;
+      const tail = words.splice(-3).join("\u00a0");
+      last.data = words.join(" ") + " " + tail + last.data.slice(last.data.trimEnd().length);
+    });
+  }
+  noOrphans();
 
   // ---------- Reveal on scroll ----------
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 });

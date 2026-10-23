@@ -3,6 +3,7 @@
   <url>
     <loc>https://theartofordinarythings.mely.io.vn/</loc>
     <lastmod>2026-10-23</lastmod>
+    <priority>1.0</priority>
     <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/caillebotte-rainy-day.jpg</image:loc></image:image>
     <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/caravaggio-fruit.jpg</image:loc></image:image>
     <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/chardin-lady-tea.jpg</image:loc></image:image>
@@ -36,19 +37,68 @@
     <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/power-house-mechanic.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://theartofordinarythings.mely.io.vn/little-things.html</loc>
+    <loc>https://theartofordinarythings.mely.io.vn/little-things</loc>
     <lastmod>2026-10-23</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/van-gogh-shoes.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/caravaggio-fruit.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/chardin-still-life.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/hammershoi-sunlight.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/hammershoi-strandgade.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/van-gogh-almond-blossom.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/degas-in-a-cafe.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/chardin-lady-tea.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/vermeer-milkmaid.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/caillebotte-rainy-day.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/pissarro-boulevard-night.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/vermeer-little-street.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/harnett-old-violin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/chardin-soap-bubbles.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/atget-au-tambour.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://theartofordinarythings.mely.io.vn/colors-of-life.html</loc>
+    <loc>https://theartofordinarythings.mely.io.vn/colors-of-life</loc>
     <lastmod>2026-10-23</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/van-gogh-yellow-house.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/van-gogh-bedroom.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/chardin-still-life.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/atget-au-tambour.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/monet-footbridge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/corot-mortefontaine.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/larsson-breakfast.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/emerson-water-lilies.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/whistler-nocturne.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/vermeer-woman-blue.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/hammershoi-woman-back.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/steichen-pond.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/van-gogh-peach-trees.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/degas-dancers-pink.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/fantin-latour-roses.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/colors/morisot-cradle.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://theartofordinarythings.mely.io.vn/art-and-reflections.html</loc>
+    <loc>https://theartofordinarythings.mely.io.vn/art-and-reflections</loc>
     <lastmod>2026-10-23</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/courbet-studio.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/vermeer-milkmaid.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/van-gogh-chair.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/courbet-stone-breakers.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/art/lange-migrant-mother.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/museum/triptych.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/museum/academy-rules.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/museum/music-wall.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://theartofordinarythings.mely.io.vn/kindness-and-courage.html</loc>
+    <loc>https://theartofordinarythings.mely.io.vn/kindness-and-courage</loc>
     <lastmod>2026-10-23</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/pie-town-dinner.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/ellis-island-family.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/dust-storm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/little-spinner.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/power-house-mechanic.jpg</image:loc></image:image>
+    <image:image><image:loc>https://theartofordinarythings.mely.io.vn/people/bandits-roost.jpg</image:loc></image:image>
   </url>
 </urlset>
