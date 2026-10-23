@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Art of Ordinary Things</title>
+<meta name="description" content="Art, photography and everyday life — finding beauty in an old chair, sunlight on a wall, an empty café.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6f2ea;
+    --cream-2: #eee8dd;
+    --card: #fbf9f4;
+    --ink: #3b322a;
+    --ink-soft: #74695d;
+    --line: #d9cfbf;
+    --night: #151311;
+    --night-2: #24201c;
+    --gold: #a88a5a;
+    --display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+    --serif: "Libre Caslon Text", Georgia, serif;
+    --sans: "Open Sans", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(1120px, 100% - 32px); margin: 0 auto; }
+  .film { filter: sepia(.18) saturate(.88) contrast(.96); transition: transform 1.2s ease, filter .6s; }
+  .ph { overflow: hidden; background: var(--cream-2); }
+  .ph:hover .film { transform: scale(1.035); filter: none; }
+
+  h1, h2, h3, h4 { font-family: var(--display); font-style: italic; font-weight: 400; margin: 0; letter-spacing: -.005em; }
+  .eyebrow { font-family: var(--serif); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft); }
+  .more-link {
+    display: inline-flex; gap: 6px; align-items: center;
+    font-family: var(--serif); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    border-bottom: 1px solid currentColor; padding-bottom: 2px;
+  }
+  .more-link:hover { color: var(--gold); }
+  .cap { display: block; text-align: center; margin-top: 10px; font-family: var(--serif); font-size: 12px; color: var(--ink-soft); }
+  .cap span { border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+
+  /* ---------- Header ---------- */
+  header.top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--cream) 92%, transparent); backdrop-filter: blur(8px); }
+  .top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; border-bottom: 1px solid var(--line); }
+  .menu-btn { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+  .menu-btn i { display: grid; gap: 4px; }
+  .menu-btn i b { display: block; width: 18px; height: 1px; background: currentColor; }
+  .logo { display: grid; justify-items: center; line-height: 1; }
+  .logo .mono { font-family: var(--display); font-size: 34px; position: relative; }
+  .logo small { font-family: var(--serif); font-size: 8.5px; letter-spacing: .3em; text-transform: uppercase; margin-top: 4px; color: var(--ink-soft); }
+  .top-right { justify-self: end; display: flex; gap: 22px; align-items: center; }
+  .top-right svg { width: 16px; height: 16px; }
+  .drawer { position: fixed; inset: 76px 0 auto 0; background: var(--cream); border-bottom: 1px solid var(--line); z-index: 40; transform: translateY(-120%); transition: transform .5s ease; }
+  .drawer.open { transform: none; }
+  .drawer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding: 28px 16px; }
+  .drawer a { font-family: var(--display); font-style: italic; font-size: 26px; }
+  .drawer a:hover { color: var(--gold); }
+  @media (max-width: 640px) { .top-right .more-link { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { text-align: center; padding: 64px 0 0; }
+  .hero h1 { font-size: clamp(40px, 7vw, 84px); line-height: 1.05; margin: 18px 0 14px; }
+  .hero p.lede { font-family: var(--serif); font-size: 17px; color: var(--ink-soft); max-width: 62ch; margin: 0 auto 44px; text-wrap: balance; }
+  @media (max-width: 700px) { .hero .br-md { display: none; } }
+  .hero .ph { aspect-ratio: 16 / 8; }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); margin: 56px 0 96px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+  .feature { padding: 40px 28px 44px; }
+  .feature + .feature { border-left: 1px solid var(--line); }
+  .features svg { width: 40px; height: 40px; color: var(--ink); margin: 0 auto 18px; display: block; }
+  .feature .eyebrow { color: var(--gold); }
+  .feature h3 { font-size: 24px; line-height: 1.2; margin: 6px 0 10px; }
+  .feature p { font-family: var(--sans); font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); max-width: 28ch; margin: 0 auto; text-wrap: balance; }
+  @media (max-width: 700px) { .hero .ph { aspect-ratio: 4 / 3; } .features { grid-template-columns: 1fr; } .feature + .feature { border-left: 0; border-top: 1px solid var(--line); } }
+
+  /* ---------- Section heads ---------- */
+  .head { text-align: center; margin-bottom: 48px; }
+  .head h2 { font-size: clamp(34px, 5vw, 54px); line-height: 1.1; margin-top: 10px; }
+  .head p { font-family: var(--serif); color: var(--ink-soft); max-width: 54ch; margin: 14px auto 0; }
+
+  /* ---------- 01 Little Things (dark masonry of cards) ---------- */
+  .little { background: var(--night); color: var(--cream); padding: 96px 0; }
+  .little .head p, .little .eyebrow { color: #a99e90; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 44px; }
+  .chips button {
+    font: inherit; font-family: var(--serif); font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 999px; border: 1px solid #4a433b; background: transparent; color: #cfc5b6; cursor: pointer;
+  }
+  .chips button[aria-pressed="true"] { background: var(--cream); color: var(--night); border-color: var(--cream); }
+  .masonry { columns: 4 240px; column-gap: 22px; }
+  .card { break-inside: avoid; margin-bottom: 22px; border-radius: 22px; overflow: hidden; background: var(--card); color: var(--ink); }
+  .card.hide { display: none; }
+  .card .ph { background: var(--night-2); }
+  .card.photo .ph { aspect-ratio: var(--r, 3/4); }
+  .card .body { padding: 26px 26px 28px; }
+  .card.note { background: transparent; color: var(--cream); border: 1px solid #3a342e; }
+  .card.note .body { padding: 30px 28px 30px; }
+  .note-kicker { display: block; margin-bottom: 14px; font-family: var(--serif); font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .card.note h3 { font-size: 28px; margin-bottom: 14px; }
+  .card.note p { color: #b4a999; font-size: 13.5px; margin: 0 0 22px; padding-bottom: 22px; border-bottom: 1px solid #3a342e; }
+  .note-link { all: unset; cursor: pointer; font-family: var(--serif); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--cream); transition: color .2s; }
+  .note-link span { display: inline-block; margin-left: 6px; transition: transform .2s; }
+  .note-link:hover { color: var(--gold); }
+  .note-link:hover span { transform: translateX(4px); }
+  .note-link:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+
+  .card h3 { font-size: 26px; line-height: 1.2; margin-bottom: 14px; }
+  .card p { font-size: 13px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 18px; }
+  .card.photo { position: relative; }
+  .card.photo figcaption {
+    position: absolute; left: 14px; bottom: 14px; padding: 5px 12px; border-radius: 999px;
+    background: rgba(21,19,17,.55); backdrop-filter: blur(6px); color: var(--cream);
+    font-family: var(--serif); font-size: 11.5px; font-style: italic;
+  }
+
+  /* ---------- 02 Visual Diary (alternating splits) ---------- */
+  .diary { padding: 104px 0 72px; }
+  .entry { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 44px 0; border-top: 1px solid var(--line); }
+  .entry:nth-of-type(even) .ph-wrap { order: 2; }
+  .entry .ph { aspect-ratio: 5 / 4; }
+  .entry .date { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .entry .date b { font-family: var(--display); font-weight: 400; font-size: 44px; line-height: 1; }
+  .entry h3 { font-size: clamp(26px, 3vw, 34px); line-height: 1.2; margin: 6px 0 16px; }
+  .entry p { color: var(--ink-soft); margin: 0 0 22px; max-width: 46ch; }
+  .entry .exif { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 22px; }
+  .thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .thumbs .ph { aspect-ratio: 1; }
+  @media (max-width: 800px) {
+    .entry { grid-template-columns: 1fr; gap: 24px; }
+    .entry:nth-of-type(even) .ph-wrap { order: 0; }
+  }
+
+  /* ---------- 03 Colors of Life (curriculum-style) ---------- */
+  .colors { background: var(--cream-2); padding: 104px 0; }
+  .colors-top { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 44px; }
+  .colors-top h2 { font-size: clamp(34px, 5vw, 54px); line-height: 1.1; margin: 10px 0 0; }
+  .colors-top p { margin: 0; color: var(--ink-soft); }
+  .palettes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .palette {
+    all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 12px;
+    padding: 9px 18px 9px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--card);
+    font-family: var(--display); font-style: italic; font-size: 17px;
+  }
+  .palette .dots { display: flex; }
+  .palette .dots i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--card); margin-left: -6px; }
+  .palette .dots i:first-child { margin-left: 0; }
+  .palette[aria-pressed="true"] { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .palette[aria-pressed="true"] .dots i { border-color: var(--ink); }
+  .color-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 22px 18px; }
+  .color-grid figure { margin: 0; display: flex; flex-direction: column; min-height: 0; }
+  .color-grid .ph { flex: 1; min-height: 0; position: relative; }
+  .color-grid figure:nth-child(1) { grid-row: span 2; }
+  .color-grid figure:nth-child(2) { grid-column: span 2; }
+  .color-grid figure:nth-child(2) img { object-position: 50% 30%; }
+  .color-grid .kind { position: absolute; top: 12px; left: 12px; padding: 4px 11px; border-radius: 999px; background: rgba(251,249,244,.88); font-family: var(--serif); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); }
+  .color-grid .cap { text-align: left; }
+  .color-grid .cap small { margin-left: 6px; font-style: italic; color: var(--ink-soft); }
+  .color-note { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .color-note p { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; margin: 0; max-width: 40ch; }
+  .hex { display: flex; flex-wrap: wrap; gap: 8px 18px; align-content: center; }
+  .hex span { display: inline-flex; align-items: center; gap: 8px; font-family: var(--serif); font-size: 12px; letter-spacing: .08em; color: var(--ink-soft); }
+  .hex i { width: 12px; height: 12px; border-radius: 50%; }
+  @media (max-width: 800px) {
+    .colors-top { grid-template-columns: 1fr; gap: 16px; }
+    .color-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 340px 220px 220px; }
+    .color-grid figure:nth-child(1) { grid-row: auto; grid-column: span 2; }
+  }
+
+  /* ---------- 04 Stories (plein-air split) ---------- */
+  .stories { padding: 104px 0; }
+  .feature-story { display: grid; grid-template-columns: 1fr 1.05fr; background: var(--card); border: 1px solid var(--line); }
+  .feature-story .text { padding: clamp(28px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; }
+  .feature-story h3 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; margin: 12px 0 20px; }
+  .feature-story p { color: var(--ink-soft); margin: 0 0 16px; }
+  .feature-story blockquote { margin: 12px 0 28px; padding-left: 18px; border-left: 1px solid var(--gold); font-family: var(--display); font-style: italic; font-size: 21px; line-height: 1.45; color: var(--ink); }
+  .feature-story .ph { min-height: 520px; }
+  .specs { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 6px 28px; margin-bottom: 28px; }
+  .specs small { display: block; }
+  .specs b { font-family: var(--serif); font-weight: 400; font-size: 14px; }
+  .story-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+  .story-row .ph { aspect-ratio: 4 / 3; margin-bottom: 18px; }
+  .story-row h4 { font-size: 22px; line-height: 1.25; margin: 8px 0 12px; }
+  .story-row a:hover h4 { color: var(--gold); }
+  @media (max-width: 800px) {
+    .feature-story { grid-template-columns: 1fr; }
+    .feature-story .ph { min-height: 0; aspect-ratio: 4 / 5; order: -1; }
+    .specs { grid-template-columns: repeat(2, auto); }
+    .story-row { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer (dark CTA) ---------- */
+  footer { background: var(--night); color: var(--cream); padding: 88px 0 36px; }
+  .foot-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .foot-cta .ph { aspect-ratio: 4 / 3; background: var(--night-2); }
+  .foot-cta h2 { font-size: clamp(32px, 4.4vw, 50px); line-height: 1.12; margin-bottom: 18px; }
+  .foot-cta p { color: #a99e90; margin: 0 0 28px; max-width: 44ch; }
+  .subscribe { display: flex; border-bottom: 1px solid #5a5148; max-width: 420px; }
+  .subscribe input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: var(--cream); font-family: var(--serif); font-size: 15px; padding: 10px 0; }
+  .subscribe input::placeholder { color: #7d7266; font-style: italic; }
+  .subscribe button { background: transparent; border: 0; color: var(--cream); cursor: pointer; font-family: var(--serif); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  .foot-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-top: 80px; padding-top: 32px; border-top: 1px solid #332e29; }
+  .foot-cols h5 { margin: 0 0 12px; font-family: var(--serif); font-weight: 400; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .foot-cols a { display: block; font-size: 13px; color: #cfc5b6; line-height: 2; }
+  .foot-cols a:hover { color: var(--cream); }
+  .foot-cols .brand { font-family: var(--display); font-style: italic; font-size: 24px; line-height: 1.3; }
+  .foot-cols .brand small { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: 12px; color: #7d7266; }
+  @media (max-width: 800px) {
+    .foot-cta { grid-template-columns: 1fr; gap: 32px; }
+    .foot-cols { grid-template-columns: 1fr 1fr; }
+    .foot-cols > div:first-child { grid-column: span 2; }
+  }
+
+
+  /* ---------- Through My Lens (own photos, annotated) ---------- */
+  .lens { padding: 104px 0 64px; }
+  .plate { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; padding: 48px 0; border-top: 1px solid var(--line); }
+  .plate:nth-of-type(even) .plate-img { order: 2; }
+  .plate-img figure { margin: 0; }
+  .plate-img .ph { aspect-ratio: var(--r, 4/5); }
+  .plate-img figcaption { margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: 12.5px; color: var(--ink-soft); }
+  .plate h3 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.15; margin: 8px 0 14px; }
+  .plate .intro { color: var(--ink-soft); margin: 0 0 24px; max-width: 46ch; }
+  .traits { margin: 0; border-top: 1px solid var(--line); }
+  .traits div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .traits dt { font-family: var(--serif); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); padding-top: 3px; }
+  .traits dd { margin: 0; font-size: 14px; line-height: 1.65; }
+  @media (max-width: 800px) {
+    .plate { grid-template-columns: 1fr; gap: 24px; }
+    .plate:nth-of-type(even) .plate-img { order: 0; }
+    .traits div { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* ---------- Art That Makes Us Think (gallery wall) ---------- */
+  .gallery { background: #1d1a17; color: var(--cream); padding: 104px 0; }
+  .gallery .head p, .gallery .eyebrow { color: #a99e90; }
+  .exhibits { display: grid; grid-template-columns: 1fr 1fr; gap: 72px 56px; align-items: start; }
+  .exhibit { margin: 0; }
+  .exhibit .frame { padding: 16px; background: #f3eee4; box-shadow: 0 0 0 1px #3a332c, 0 24px 50px rgba(0,0,0,.45); }
+  .exhibit .frame img { height: auto; }
+  .label { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin: 26px 0 16px; padding-bottom: 16px; border-bottom: 1px solid #3a332c; }
+  .label h3 { font-size: 28px; line-height: 1.15; }
+  .label .meta { grid-column: 1 / -1; font-family: var(--serif); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #a99e90; }
+  .label .no { font-family: var(--display); font-size: 28px; color: var(--gold); }
+  .exhibit blockquote { margin: 0; font-family: var(--display); font-style: italic; font-size: 19px; line-height: 1.6; color: #e9e2d6; }
+  .exhibit blockquote::before { content: "Reflection"; display: block; margin-bottom: 8px; font-family: var(--serif); font-style: normal; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .exhibit.offset { margin-top: 120px; }
+  .visits-head { margin: 120px 0 48px; padding-top: 56px; border-top: 1px solid #3a332c; text-align: center; }
+  .visits-head h3 { font-size: clamp(30px, 4vw, 44px); margin-top: 10px; }
+  .visits-head p { font-family: var(--serif); color: #a99e90; max-width: 54ch; margin: 12px auto 0; }
+  .visits { display: grid; grid-template-columns: 1fr 1fr; gap: 72px 56px; align-items: start; }
+  .visit.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: center; }
+  .visit.wide .label { margin-top: 0; }
+  .dark-traits { margin: 0 0 22px; }
+  .dark-traits div { display: grid; grid-template-columns: 96px 1fr; gap: 14px; padding: 10px 0; border-bottom: 1px solid #3a332c; }
+  .dark-traits dt { font-family: var(--serif); font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); padding-top: 3px; }
+  .dark-traits dd { margin: 0; font-size: 13.5px; line-height: 1.65; color: #cfc5b6; }
+  @media (max-width: 800px) { .visits, .visit.wide { grid-template-columns: 1fr; gap: 56px; } .visit.wide { gap: 0; } .visit.wide .label { margin-top: 26px; } }
+
+  @media (max-width: 800px) { .exhibits { grid-template-columns: 1fr; gap: 64px; } .exhibit.offset { margin-top: 0; } }
+
+
+  /* ---------- Kindness & Courage (documentary photos) ---------- */
+  .people { padding: 104px 0; background: var(--cream-2); }
+  .people-quote { font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.4; text-align: center; max-width: 34ch; margin: -12px auto 56px; color: var(--ink); }
+  .people-grid { columns: 3 300px; column-gap: 32px; }
+  .story-card { break-inside: avoid; margin: 0 0 44px; }
+  .story-card .ph { background: #d8d0c2; }
+  .story-card img { height: auto; filter: sepia(.12) contrast(.98); }
+  .story-card .theme { display: inline-block; margin: 16px 0 6px; padding: 3px 10px; border: 1px solid var(--gold); border-radius: 999px; font-family: var(--serif); font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .story-card h3 { font-size: 26px; line-height: 1.2; margin: 6px 0 4px; }
+  .story-card .credit { font-family: var(--serif); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  .story-card p { margin: 12px 0 0; font-size: 14px; line-height: 1.75; color: var(--ink-soft); }
+
+  /* reveal */
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity 1s ease, transform 1s ease; }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } .film { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="drawer"><i><b></b><b></b><b></b></i>Menu</button>
+    <a class="logo" href="#top" aria-label="The Art of Ordinary Things — home">
+      <span class="mono">O</span>
+      <small>Ordinary Things</small>
+    </a>
+    <div class="top-right">
+      <a href="#little" aria-label="Browse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a>
+      <a class="more-link" href="#subscribe">Subscribe ↗</a>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <nav>
+    <a href="#little">Little Things</a>
+    <a href="#lens">Learning to See</a>
+    <a href="#diary">Visual Diary</a>
+    <a href="#colors">Colors of Life</a>
+    <a href="#art">Art That Makes Us Think</a>
+    <a href="#people">Kindness &amp; Courage</a>
+    <a href="#stories">Stories Behind the Frame</a>
+  </nav>
+</div>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero wrap">
+    <span class="eyebrow rv">Art × Photography × Everyday Life</span>
+    <h1 class="rv">The Art of Ordinary Things</h1>
+    <p class="lede rv">To see like a painter is to notice<br class="br-md"> The quiet beauty hiding in everyday things.</p>
+    <div class="ph rv"><img class="film" src="art/hammershoi-sunlight.jpg" alt="Vilhelm Hammershøi, Sunshine on the floor, Strandgade 30 (1901)" style="object-position:50% 60%"></div>
+
+    <div class="features">
+      <div class="feature rv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6v22M32 6v22M16 10h16M16 15h16M16 20h16"/><path d="M12 28h24v3H12z"/><path d="M14 31l-1.5 11M34 31l1.5 11M18 31v7M30 31v7M16 37h16"/></svg>
+        <span class="eyebrow">I</span>
+        <h3>Objects with a past</h3>
+        <p>A chair, a teapot, a key on a nail — things that have lived a long life.</p>
+      </div>
+      <div class="feature rv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30V15a10 10 0 0 1 20 0v15z"/><path d="M24 5v25M14 19h20"/><path d="M14 30l-6 12h24l8-12"/><path d="M15 36h18M12 40h4" opacity=".5"/></svg>
+        <span class="eyebrow">II</span>
+        <h3>Light, unplanned</h3>
+        <p>Sunlight and shadow as they fall across walls and quiet floors.</p>
+      </div>
+      <div class="feature rv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8C14 8 6 15 6 24c0 8 6 14 13 14 3 0 4-2 3-4.5s0-4.5 3-4.5h6c6 0 11-3 11-9 0-7-8-12-18-12z"/><circle cx="15" cy="21" r="2.2"/><circle cx="21" cy="14.5" r="2.2"/><circle cx="29" cy="14.5" r="2.2"/><circle cx="35" cy="20" r="2.2"/></svg>
+        <span class="eyebrow">III</span>
+        <h3>Seen like a painting</h3>
+        <p>Everyday colors and moments, framed the way a painter would see them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 Little Things -->
+  <section class="little" id="little">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Chapter I</span>
+        <h2>Little Things</h2>
+        <p>Photo collections, gathered by theme. Small objects and quiet corners that hold a whole story.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter collections">
+        <button aria-pressed="true" data-f="all">All</button>
+        <button aria-pressed="false" data-f="objects">Objects</button>
+        <button aria-pressed="false" data-f="light">Light & Shadow</button>
+        <button aria-pressed="false" data-f="cafe">Cafés</button>
+        <button aria-pressed="false" data-f="street">Streets</button>
+        <button aria-pressed="false" data-f="vintage">Vintage</button>
+      </div>
+      <div class="masonry" id="masonry"></div>
+    </div>
+  </section>
+
+  <!-- 02 Learning to See -->
+  <section class="lens wrap" id="lens">
+    <div class="head rv">
+      <span class="eyebrow">Chapter II</span>
+      <h2>Learning to See</h2>
+      <p>Classic photographs that found art in everyday streets — and the small choices that make each one work.</p>
+    </div>
+
+    <article class="plate rv">
+      <div class="plate-img"><figure>
+        <div class="ph" style="--r:4/5"><img loading="lazy" src="lens/steichen-flatiron.jpg" alt="A tall building fading into blue-green dusk behind bare tree branches, a carriage driver silhouetted on a wet street"></div>
+        <figcaption>Edward Steichen, The Flatiron, 1904</figcaption>
+      </figure></div>
+      <div>
+        <span class="eyebrow">Plate 01</span>
+        <h3>A building melting into dusk</h3>
+        <p class="intro">A rainy evening, a carriage driver, and a tower that seems to dissolve into the air.</p>
+        <dl class="traits">
+          <div><dt>Tone</dt><dd>Blue-green twilight, printed in layers so the photograph reads almost like a painting.</dd></div>
+          <div><dt>Framing</dt><dd>A dark branch sweeps across the top, framing the tower and pulling us into the scene.</dd></div>
+          <div><dt>Atmosphere</dt><dd>Rain and mist soften every edge; small streetlights glimmer on the wet road.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="plate rv">
+      <div class="plate-img"><figure>
+        <div class="ph" style="--r:3/4"><img loading="lazy" src="lens/stieglitz-winter.jpg" alt="A horse-drawn carriage pushing through deep snow on a city avenue, buildings fading into the storm"></div>
+        <figcaption>Alfred Stieglitz, Winter, Fifth Avenue, 1893</figcaption>
+      </figure></div>
+      <div>
+        <span class="eyebrow">Plate 02</span>
+        <h3>Waiting for the snow</h3>
+        <p class="intro">Stieglitz is said to have stood in a blizzard for hours, waiting for this one moment.</p>
+        <dl class="traits">
+          <div><dt>Timing</dt><dd>The carriage and driver arrive exactly where the eye wants them — the whole picture hangs on that moment.</dd></div>
+          <div><dt>Texture</dt><dd>Wheel tracks carved into the snow lead us from the bottom edge straight to the horses.</dd></div>
+          <div><dt>Mood</dt><dd>Falling snow flattens the background to soft grey, so the city feels quiet even in a storm.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="plate rv">
+      <div class="plate-img"><figure>
+        <div class="ph" style="--r:4/5"><img loading="lazy" src="lens/atget-rue-des-ursins.jpg" alt="An old curving street with weathered buildings, a painted hotel sign, layered posters and parked handcarts"></div>
+        <figcaption>Eugène Atget, Rue des Ursins, 1923</figcaption>
+      </figure></div>
+      <div>
+        <span class="eyebrow">Plate 03</span>
+        <h3>A street before it disappears</h3>
+        <p class="intro">Atget photographed old Paris corner by corner, before much of it was rebuilt.</p>
+        <dl class="traits">
+          <div><dt>Light</dt><dd>Soft early light and an empty street — no crowds, only the buildings and their traces of life.</dd></div>
+          <div><dt>Detail</dt><dd>A hand-painted hotel sign, layers of posters, carts left by the door: every surface tells a story.</dd></div>
+          <div><dt>Curve</dt><dd>The road bends out of sight, inviting us to walk around the corner.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="plate rv">
+      <div class="plate-img"><figure>
+        <div class="ph" style="--r:4/5"><img loading="lazy" src="lens/stieglitz-steerage.jpg" alt="Passengers crowded on two decks of a ship, divided by a bright diagonal gangway"></div>
+        <figcaption>Alfred Stieglitz, The Steerage, 1907</figcaption>
+      </figure></div>
+      <div>
+        <span class="eyebrow">Plate 04</span>
+        <h3>Shapes before people</h3>
+        <p class="intro">Stieglitz later said he first saw the scene as a picture of shapes — then of people.</p>
+        <dl class="traits">
+          <div><dt>Geometry</dt><dd>A bright diagonal gangway slices the frame in two, with a ladder, a funnel and a mast holding it together.</dd></div>
+          <div><dt>Two worlds</dt><dd>An upper deck looking down, a lower deck going about its day — the composition quietly tells the story.</dd></div>
+          <div><dt>Details</dt><dd>A straw hat, hanging laundry, a child on the stairs: small things that make it human.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- 03 Visual Diary -->
+  <section class="diary wrap" id="diary">
+    <div class="head rv">
+      <span class="eyebrow">Chapter III</span>
+      <h2>Visual Diary</h2>
+      <p>A diary written in pictures. One roll, one day, and a few lines of what it felt like.</p>
+    </div>
+
+    <article class="entry rv">
+      <div class="ph-wrap"><div class="ph"><img class="film" src="https://picsum.photos/id/57/1000/800" alt="A wet street after rain"></div></div>
+      <div>
+        <div class="date"><b>18</b><span class="eyebrow">Saturday · October</span></div>
+        <h3>Rain stopped just before noon</h3>
+        <p>The street vendor across the road wiped down her stools one by one. The tiles were still wet, and everything reflected twice.</p>
+        <div class="exif eyebrow"><span>Roll 14</span><span>f/2.8</span><span>1/125</span></div>
+        <a class="more-link" href="#diary">Read entry ↗</a>
+      </div>
+    </article>
+
+    <article class="entry rv">
+      <div class="ph-wrap">
+        <div class="ph"><img class="film" src="art/chardin-still-life.jpg" alt="Jean-Siméon Chardin, Still Life with Pestle and Mortar, Pitcher and Copper Cauldron"></div>
+      </div>
+      <div>
+        <div class="date"><b>11</b><span class="eyebrow">Saturday · October</span></div>
+        <h3>Grandmother’s cupboard</h3>
+        <p>Porcelain bowls with tiny chips, a tin of buttons, and a radio that still works if you tap it on the left side.</p>
+        <div class="exif eyebrow"><span>Roll 13</span><span>f/4</span><span>1/60</span></div>
+        <a class="more-link" href="#diary">Read entry ↗</a>
+      </div>
+    </article>
+
+    <article class="entry rv">
+      <div class="ph-wrap">
+        <div class="ph"><img class="film" src="https://picsum.photos/id/1060/1000/800" alt="An empty café"></div>
+        <div class="thumbs">
+          <div class="ph"><img class="film" src="https://picsum.photos/id/63/500/500" alt="A glass of iced coffee"></div>
+          <div class="ph"><img class="film" src="https://picsum.photos/id/30/500/500" alt="An old electric fan"></div>
+        </div>
+      </div>
+      <div>
+        <div class="date"><b>04</b><span class="eyebrow">Saturday · October</span></div>
+        <h3>The café nobody visits</h3>
+        <p>Two tables, one fan, and a cat asleep on the counter. I ordered a cà phê sữa đá and stayed for the light.</p>
+        <div class="exif eyebrow"><span>Roll 12</span><span>f/2</span><span>1/250</span></div>
+        <a class="more-link" href="#diary">Read entry ↗</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- 04 Colors of Life -->
+  <section class="colors" id="colors">
+    <div class="wrap">
+      <div class="colors-top rv">
+        <div>
+          <span class="eyebrow">Chapter IV</span>
+          <h2>Colors of Life</h2>
+        </div>
+        <p>Photo sets arranged by palette — the colors a place leaves behind after you’ve gone. Choose a palette to see the frames that share it.</p>
+      </div>
+      <div class="palettes" id="palettes" role="group" aria-label="Choose a palette"></div>
+      <div class="color-grid" id="color-grid"></div>
+      <div class="color-note">
+        <p id="color-text"></p>
+        <div class="hex" id="color-hex"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Art That Makes Us Think -->
+  <section class="gallery" id="art">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Chapter V</span>
+        <h2>Art That Makes Us Think</h2>
+        <p>Famous works that found something extraordinary in ordinary life — and a few lines on what each one makes me feel.</p>
+      </div>
+      <div class="exhibits">
+        <figure class="exhibit rv">
+          <div class="frame"><img loading="lazy" src="art/vermeer-milkmaid.jpg" alt="Johannes Vermeer, The Milkmaid"></div>
+          <figcaption>
+            <div class="label"><h3>The Milkmaid</h3><span class="no">i</span><span class="meta">Johannes Vermeer · c. 1658 · Oil on canvas</span></div>
+            <blockquote>Nothing really happens here. A woman pours milk into a bowl, and that is all. Yet Vermeer gives that small act the whole morning light from the window — the crust of the bread, the thin white stream. It reminds me that paying attention is its own kind of respect.</blockquote>
+          </figcaption>
+        </figure>
+        <figure class="exhibit offset rv">
+          <div class="frame"><img loading="lazy" src="art/van-gogh-chair.jpg" alt="Vincent van Gogh, Van Gogh's Chair"></div>
+          <figcaption>
+            <div class="label"><h3>Van Gogh’s Chair</h3><span class="no">ii</span><span class="meta">Vincent van Gogh · 1888 · Oil on canvas</span></div>
+            <blockquote>A plain wooden chair with a pipe and a little tobacco left on the seat. No one is sitting there, yet it feels like a portrait. I love how an object can keep the shape of a person — the way an empty chair at home still feels like someone’s.</blockquote>
+          </figcaption>
+        </figure>
+        <figure class="exhibit rv">
+          <div class="frame"><img loading="lazy" src="art/courbet-stone-breakers.jpg" alt="Gustave Courbet, The Stone Breakers"></div>
+          <figcaption>
+            <div class="label"><h3>The Stone Breakers</h3><span class="no">iii</span><span class="meta">Gustave Courbet · 1849 · Oil on canvas, destroyed 1945</span></div>
+            <blockquote>Two workers by the roadside, one young and one old, their faces turned away from us. Courbet painted them at a size usually saved for heroes and kings. It makes me wonder who we choose to look at — and who we walk past every day without noticing.</blockquote>
+          </figcaption>
+        </figure>
+        <figure class="exhibit offset rv">
+          <div class="frame"><img loading="lazy" src="art/lange-migrant-mother.jpg" alt="Dorothea Lange, Migrant Mother"></div>
+          <figcaption>
+            <div class="label"><h3>Migrant Mother</h3><span class="no">iv</span><span class="meta">Dorothea Lange · 1936 · Photograph</span></div>
+            <blockquote>Her hand rests near her mouth while her children turn their faces away. The photograph doesn’t explain the Great Depression; it shows one worried mother. Numbers tell us how many people struggled — a single image makes us feel what it meant.</blockquote>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="visits-head rv">
+        <span class="eyebrow">From my museum visits</span>
+        <h3>What I stopped for</h3>
+        <p>Photographs I took while wandering through exhibitions — and what made me stand still in front of each one.</p>
+      </div>
+      <div class="visits">
+        <figure class="exhibit visit wide rv">
+          <div class="frame"><img loading="lazy" src="museum/triptych.jpg" alt="A large three-panel painting on a gallery wall: two side panels with flames inside dark oval portals, a centre panel crowded with red figures in a city at night"></div>
+          <figcaption>
+            <div class="label"><h3>Three Doors of Fire</h3><span class="no">v</span><span class="meta">Triptych · Oil on canvas · Seen in a gallery</span></div>
+            <dl class="dark-traits">
+              <div><dt>Structure</dt><dd>Three panels, like an old church altarpiece — two quiet side doors holding a crowded, restless centre.</dd></div>
+              <div><dt>Color</dt><dd>Electric blues and violets on the sides; hot reds and orange flames pull the eye straight to the middle.</dd></div>
+              <div><dt>Pattern</dt><dd>Every surface is covered in tiny marks and tiles, so the closer you get, the more there is to find.</dd></div>
+            </dl>
+            <blockquote>I didn’t understand it at first, and maybe I still don’t. A city at night, figures in red, two flames burning behind oval doors. But I stayed in front of it longer than any other work in the room. Some paintings don’t explain themselves — they simply ask you to keep looking.</blockquote>
+          </figcaption>
+        </figure>
+        <figure class="exhibit visit rv">
+          <div class="frame"><img loading="lazy" src="museum/academy-rules.jpg" alt="An exhibition wall with an ink illustration of students and a teacher in an old academy hall, text panels below and old books in a glass case"></div>
+          <figcaption>
+            <div class="label"><h3>Rules of the Old Academy</h3><span class="no">vi</span><span class="meta">Exhibition panel · 1428–1789</span></div>
+            <dl class="dark-traits">
+              <div><dt>Line</dt><dd>A hand-drawn ink scene of scholars at their desks — a whole classroom told in grey lines on a pale wall.</dd></div>
+              <div><dt>Material</dt><dd>Warm wood, yellowed paper and a worn book behind glass: the textures of learning.</dd></div>
+              <div><dt>Story</dt><dd>The panel lists the school’s rules — attendance, conduct, punishments — written centuries ago.</dd></div>
+            </dl>
+            <blockquote>Students who skipped class or broke the rules were punished; the best were rewarded. Reading it, I smiled — school feels the same across six hundred years. The most ordinary parts of life are often the ones that last.</blockquote>
+          </figcaption>
+        </figure>
+        <figure class="exhibit visit offset rv">
+          <div class="frame"><img loading="lazy" src="museum/music-wall.jpg" alt="A museum wall of 1980s music memorabilia: electric guitars, band posters, a boombox, sneakers in a glass case and a mannequin in a band T-shirt above a checkerboard floor"></div>
+          <figcaption>
+            <div class="label"><h3>A Wall of Old Songs</h3><span class="no">vii</span><span class="meta">Music exhibition · 1980s memorabilia</span></div>
+            <dl class="dark-traits">
+              <div><dt>Palette</dt><dd>Black, white and red everywhere — the checkerboard floor, the velvet rope, the band logos.</dd></div>
+              <div><dt>Collage</dt><dd>Guitars, posters and a TV hung together like a teenager’s bedroom wall, not a formal display.</dd></div>
+              <div><dt>Objects</dt><dd>A boombox, a turntable, a pair of sneakers — everyday things that became museum pieces.</dd></div>
+            </dl>
+            <blockquote>Someone once played that boombox on a street corner; someone wore those sneakers to a concert. Nothing here was made to be art. Time made it precious. It makes me wonder which of my ordinary things will one day sit behind glass.</blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Kindness & Courage -->
+  <section class="people" id="people">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Chapter VI</span>
+        <h2>Kindness &amp; Courage</h2>
+        <p>Photographs of ordinary people in hard times — of sharing, holding on, and carrying on.</p>
+      </div>
+      <p class="people-quote rv">When life had very little to give, people still found something to give each other.</p>
+      <div class="people-grid">
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/pie-town-dinner.jpg" alt="Neighbours serving each other food at a long outdoor table"></div>
+          <figcaption>
+            <span class="theme">Kindness</span>
+            <h3>Sharing the table</h3>
+            <span class="credit">Russell Lee · 1940</span>
+            <p>In a farming community that had very little, neighbours brought whatever they could cook and served one another at a long table. Nobody here is rich, yet the table is full. Kindness is often just this — passing the plate along.</p>
+          </figcaption>
+        </figure>
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/ellis-island-family.jpg" alt="A mother holding a baby, a boy carrying a large bundle on his back and a little girl holding his hand, surrounded by luggage"></div>
+          <figcaption>
+            <span class="theme">Family</span>
+            <h3>Holding on to each other</h3>
+            <span class="credit">Lewis Hine · 1905</span>
+            <p>A mother holds her baby; the eldest son carries the family’s belongings on his back while his little sister clings to his hand. They have just arrived in a new country with everything they own in a few bags. What they carried most was each other.</p>
+          </figcaption>
+        </figure>
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/dust-storm.jpg" alt="A father and two sons walking past a half-buried shed in a dust storm"></div>
+          <figcaption>
+            <span class="theme">Courage</span>
+            <h3>Walking into the storm</h3>
+            <span class="credit">Arthur Rothstein · 1936</span>
+            <p>A father and his two sons cross their farm in a dust storm; the youngest shields his face. The fence posts are almost buried. Still, they keep walking. Hard times are not only endured — they are walked through, one step at a time.</p>
+          </figcaption>
+        </figure>
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/little-spinner.jpg" alt="A small girl standing in the aisle between huge spinning machines in a cotton mill"></div>
+          <figcaption>
+            <span class="theme">Childhood</span>
+            <h3>The little spinner</h3>
+            <span class="credit">Lewis Hine · 1908</span>
+            <p>A small girl stands between towering spinning machines, looking straight at us. Hine’s photographs of children at work helped change the laws that allowed it. A single honest picture can make a whole society stop and look.</p>
+          </figcaption>
+        </figure>
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/power-house-mechanic.jpg" alt="A mechanic bending over a giant steam pump, tightening a bolt with a wrench"></div>
+          <figcaption>
+            <span class="theme">Dignity</span>
+            <h3>The mechanic</h3>
+            <span class="credit">Lewis Hine · 1920</span>
+            <p>A worker leans into a giant steam pump, his body curving with the machine. Hine called these his “work portraits”. They remind me that ordinary labour has its own strength and grace — and the people who do it deserve to be seen.</p>
+          </figcaption>
+        </figure>
+        <figure class="story-card rv">
+          <div class="ph"><img loading="lazy" src="people/bandits-roost.jpg" alt="A narrow crowded alley lined with old buildings, people standing and staring at the camera"></div>
+          <figcaption>
+            <span class="theme">Old society</span>
+            <h3>A crowded alley</h3>
+            <span class="credit">Jacob Riis · 1888</span>
+            <p>A narrow alley, laundry overhead, faces staring back at the camera. Riis showed comfortable readers how the poorest families lived, and his pictures helped push for better housing. More than a century later, those faces still ask us not to look away.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 Stories -->
+  <section class="stories wrap" id="stories">
+    <div class="head rv">
+      <span class="eyebrow">Chapter VII</span>
+      <h2>Stories Behind the Frame</h2>
+      <p>Every photograph is the last second of a longer story. Here are the rest of them.</p>
+    </div>
+
+    <article class="feature-story rv">
+      <div class="text">
+        <span class="eyebrow">Story No. 07 · 6:40 AM</span>
+        <h3>The man who walked the same street every morning</h3>
+        <p>For three weeks I waited at the same street corner with the same camera and the same roll of film. Every morning at 6:40, a man in a yellow coat walked past carrying a single loaf of bread.</p>
+        <p>On the fourth week I raised the camera. He looked straight at me — not surprised, almost as if he had been expecting it — then nodded and kept walking.</p>
+        <blockquote>“The ordinary isn’t the absence of beauty. It’s beauty that hasn’t been noticed yet.”</blockquote>
+        <div class="specs">
+          <div><small class="eyebrow">Camera</small><b>Pentax MX</b></div>
+          <div><small class="eyebrow">Lens</small><b>50mm f/1.7</b></div>
+          <div><small class="eyebrow">Film</small><b>Portra 400</b></div>
+          <div><small class="eyebrow">Exposure</small><b>1/125 · f/2.8</b></div>
+        </div>
+        <a class="more-link" href="#stories" style="align-self:flex-start">Read the story ↗</a>
+      </div>
+      <div class="ph"><img class="film" src="https://picsum.photos/id/177/900/1100" alt="A man walking alone through morning light"></div>
+    </article>
+
+    <div class="story-row">
+      <a href="#stories" class="rv">
+        <div class="ph"><img class="film" loading="lazy" src="art/hammershoi-strandgade.jpg" alt="Vilhelm Hammershøi, Interior, Strandgade 30 (1900)"></div>
+        <span class="eyebrow">Story No. 06</span>
+        <h4>An empty room, after Hammershøi</h4>
+        <span class="more-link">Read ↗</span>
+      </a>
+      <a href="#stories" class="rv">
+        <div class="ph"><img class="film" loading="lazy" src="https://picsum.photos/id/78/700/525" alt=""></div>
+        <span class="eyebrow">Story No. 05</span>
+        <h4>The door at the end of the alley</h4>
+        <span class="more-link">Read ↗</span>
+      </a>
+      <a href="#stories" class="rv">
+        <div class="ph"><img class="film" loading="lazy" src="https://picsum.photos/id/250/700/525" alt=""></div>
+        <span class="eyebrow">Story No. 04</span>
+        <h4>The camera I almost sold</h4>
+        <span class="more-link">Read ↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer id="subscribe">
+  <div class="wrap">
+    <div class="foot-cta">
+      <div class="ph rv"><img class="film" loading="lazy" src="art/courbet-studio.jpg" alt="Gustave Courbet, The Painter’s Studio (1855)"></div>
+      <div class="rv">
+        <span class="eyebrow" style="color:var(--gold)">The monthly letter</span>
+        <h2>Slow down,<br>and look again.</h2>
+        <p>One letter a month: a new roll of film, a story behind one frame, and a small ordinary thing worth noticing.</p>
+        <form class="subscribe" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Thank you ✓';">
+          <input type="email" placeholder="Your email address" aria-label="Email" required>
+          <button type="submit">Subscribe ↗</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-cols">
+      <div class="brand">The Art of Ordinary Things<small>© 2026 · Made with film & patience</small></div>
+      <div><h5>Explore</h5><a href="#little">Little Things</a><a href="#lens">Learning to See</a><a href="#diary">Visual Diary</a><a href="#colors">Colors of Life</a><a href="#art">Art & Reflections</a><a href="#people">Kindness & Courage</a><a href="#stories">Stories</a></div>
+      <div><h5>Connect</h5><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Email</a></div>
+      <div><h5>About</h5><a href="#">The project</a><a href="#">Cameras & film</a><a href="#">Prints</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Menu ----------
+  const menuBtn = document.getElementById("menu-btn"), drawer = document.getElementById("drawer");
+  menuBtn.addEventListener("click", () => {
+    const open = drawer.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+  });
+  drawer.addEventListener("click", e => { if (e.target.closest("a")) { drawer.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); } });
+
+  // ---------- Little Things: photo cards mixed with text cards ----------
+  const little = [
+    { src: "art/van-gogh-shoes.jpg", cat: "objects", r: "620/504", title: "Shoes", place: "Van Gogh, 1886" },
+    { cat: "light", text: true, title: "Light & Shadow", body: "Sun on a bare floor, blossoms against a spring sky. Light needs nothing grand — it turns an empty room into a story." },
+    { src: "art/degas-in-a-cafe.jpg", cat: "cafe", r: "8/11", title: "In a Café", place: "Degas, 1876" },
+    { src: "art/pissarro-boulevard-night.jpg", cat: "street", r: "6/5", title: "Boulevard at Night", place: "Pissarro, 1897" },
+    { src: "art/harnett-old-violin.jpg", cat: "vintage", r: "5/8", title: "The Old Violin", place: "Harnett, 1886" },
+    { src: "art/hammershoi-strandgade.jpg", cat: "light", r: "4/5", title: "Interior, Strandgade 30", place: "Hammershøi, 1900" },
+    { cat: "objects", text: true, title: "Objects with a past", body: "Worn shoes, a basket of fruit. Painters chose humble things on purpose — a used object still holds the life of its owner." },
+    { src: "art/chardin-lady-tea.jpg", cat: "cafe", r: "6/5", title: "A Lady Taking Tea", place: "Chardin, 1735" },
+    { cat: "street", text: true, title: "Streets in passing", body: "Umbrellas in the rain, lamps along a boulevard at night. The street is where strangers share the same few seconds." },
+    { src: "art/caillebotte-rainy-day.jpg", cat: "street", r: "4/3", title: "Paris Street; Rainy Day", place: "Caillebotte, 1877" },
+    { src: "art/chardin-soap-bubbles.jpg", cat: "vintage", r: "4/5", title: "Soap Bubbles", place: "Chardin, c. 1734" },
+    { src: "art/caravaggio-fruit.jpg", cat: "objects", r: "4/3", title: "Basket of Fruit", place: "Caravaggio, c. 1599" },
+    { cat: "cafe", text: true, title: "Quiet tables", body: "A glass on a café table, a cup of tea going cold. Degas and Chardin found whole lives in one person sitting alone." },
+    { cat: "vintage", text: true, title: "Things time kept", body: "An old violin on a door, a child blowing soap bubbles. Small pleasures from centuries ago — still recognisable today." },
+    { src: "art/van-gogh-almond-blossom.jpg", cat: "light", r: "5/4", title: "Almond Blossom", place: "Van Gogh, 1890" },
+    { src: "art/vermeer-little-street.jpg", cat: "street", r: "4/5", title: "The Little Street", place: "Vermeer, c. 1658" },
+  ];
+  const masonry = document.getElementById("masonry");
+  const catLabel = { objects: "Objects", light: "Light & Shadow", cafe: "Cafés", street: "Streets", vintage: "Vintage" };
+  masonry.innerHTML = little.map((it, i) => it.text ? `
+    <div class="card note rv" data-cat="${it.cat}">
+      <div class="body">
+        <span class="note-kicker">Series · ${catLabel[it.cat]}</span>
+        <h3>${it.title}</h3>
+        <p>${it.body}</p>
+        <button class="note-link" data-f="${it.cat}">See ${little.filter(x => x.cat === it.cat && !x.text).length} works <span aria-hidden="true">→</span></button>
+      </div>
+    </div>` : `
+    <figure class="card photo rv" data-cat="${it.cat}" style="--r:${it.r};margin-top:0;margin-left:0;margin-right:0">
+      <div class="ph"><img class="film" loading="lazy" src="${it.src || `https://picsum.photos/id/${it.id}/600/${Math.round(600 * it.r.split("/")[1] / it.r.split("/")[0])}`}" alt="${it.title}"></div>
+      <figcaption>${it.title}${it.place ? ` · ${it.place}` : ""}</figcaption>
+    </figure>`).join("");
+  document.querySelectorAll(".chips button").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".chips button").forEach(b => b.setAttribute("aria-pressed", b === btn));
+    masonry.querySelectorAll(".card").forEach(c => c.classList.toggle("hide", btn.dataset.f !== "all" && c.dataset.cat !== btn.dataset.f));
+  }));
+  masonry.addEventListener("click", e => {
+    const link = e.target.closest(".note-link");
+    if (!link) return;
+    document.querySelector(`.chips button[data-f="${link.dataset.f}"]`).click();
+    document.querySelector(".chips").scrollIntoView({ block: "start" });
+  });
+
+  // ---------- Colors of Life ----------
+  const palettes = [
+    { name: "Terracotta", colors: ["#b5603c", "#d99a6c", "#efd5b5", "#5a3a2a"],
+      items: [
+        ["van-gogh-yellow-house.jpg", "Street", "The Yellow House", "Van Gogh, 1888"],
+        ["van-gogh-bedroom.jpg", "Interior", "The Bedroom", "Van Gogh, 1889"],
+        ["chardin-still-life.jpg", "Still life", "Copper Cauldron", "Chardin, c. 1730"],
+        ["atget-au-tambour.jpg", "Photograph", "Au Tambour", "Atget, 1908"]],
+      text: "Warm walls in the afternoon sun — ochre, rust, copper, and the sepia of an old print." },
+    { name: "Sage", colors: ["#7d8159", "#a9ad8a", "#dfe0cc", "#3f4430"],
+      items: [
+        ["corot-mortefontaine.jpg", "Landscape", "Souvenir de Mortefontaine", "Corot, 1864"],
+        ["larsson-breakfast.jpg", "Everyday life", "Breakfast under the Big Birch", "Larsson, 1896"],
+        ["monet-footbridge.jpg", "Garden", "The Japanese Footbridge", "Monet, 1899"],
+        ["emerson-water-lilies.jpg", "Photograph", "Gathering Water-Lilies", "Emerson, 1886"]],
+      text: "Soft greens of morning: leaves, still water, and a family breakfast in the shade." },
+    { name: "Dusk", colors: ["#6f7f8f", "#a6b3bd", "#e3e6e4", "#2f3a45"],
+      items: [
+        ["whistler-nocturne.jpg", "Nocturne", "Old Battersea Bridge", "Whistler, c. 1872"],
+        ["hammershoi-woman-back.jpg", "Interior", "Interior with a Woman", "Hammershøi, 1904"],
+        ["vermeer-woman-blue.jpg", "Portrait", "Woman in Blue Reading a Letter", "Vermeer, c. 1663"],
+        ["steichen-pond.jpg", "Photograph", "Moonlight: The Pond", "Steichen, 1904"]],
+      text: "Blue hour and quiet rooms — the moment when the sky is not quite gone and the lamps are not yet lit." },
+    { name: "Rosé", colors: ["#c98f86", "#e4bcb2", "#f5e3da", "#7b4d48"],
+      items: [
+        ["van-gogh-peach-trees.jpg", "Landscape", "Pink Peach Trees", "Van Gogh, 1888"],
+        ["degas-dancers-pink.jpg", "Figure", "Dancers in Pink", "Degas, c. 1879"],
+        ["fantin-latour-roses.jpg", "Still life", "Roses", "Fantin-Latour, 1885"],
+        ["morisot-cradle.jpg", "Interior", "The Cradle", "Morisot, 1872"]],
+      text: "Blossom, ballet shoes, roses on a table — the softest pinks painters ever found in everyday life." },
+  ];
+  const palWrap = document.getElementById("palettes");
+  palWrap.innerHTML = palettes.map((p, i) => `
+    <button class="palette" aria-pressed="${i === 0}" data-i="${i}">
+      <span class="dots">${p.colors.map(c => `<i style="background:${c}"></i>`).join("")}</span>${p.name}
+    </button>`).join("");
+  function showPalette(i) {
+    const p = palettes[i];
+    document.getElementById("color-grid").innerHTML = p.items.map(([src, type, title, credit], n) => `
+      <figure>
+        <div class="ph" style="background:${p.colors[n]}"><img class="film" src="colors/${src}" alt="${title}, ${credit}"><span class="kind">${type}</span></div>
+        <figcaption class="cap"><span>${title}</span> <small>${credit}</small></figcaption>
+      </figure>`).join("");
+    document.getElementById("color-text").textContent = p.text;
+    document.getElementById("color-hex").innerHTML = p.colors.map(c => `<span><i style="background:${c}"></i>${c.toUpperCase()}</span>`).join("");
+    palWrap.querySelectorAll(".palette").forEach(b => b.setAttribute("aria-pressed", b.dataset.i == i));
+  }
+  palWrap.addEventListener("click", e => { const b = e.target.closest(".palette"); if (b) showPalette(+b.dataset.i); });
+  showPalette(0);
+
+  // ---------- Reveal on scroll ----------
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 });
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
