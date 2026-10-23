@@ -70,7 +70,7 @@
     --sans: "Open Sans", system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
     margin: 0;
     background: var(--cream);
@@ -101,19 +101,19 @@
 
   /* ---------- Header ---------- */
   header.top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--cream) 92%, transparent); backdrop-filter: blur(8px); }
-  .top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; border-bottom: 1px solid var(--line); }
-  .menu-btn { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+  .top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 56px; border-bottom: 1px solid var(--line); }
+  .menu-btn { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
   .menu-btn i { display: grid; gap: 4px; }
   .menu-btn i b { display: block; width: 18px; height: 1px; background: currentColor; }
   .logo { display: grid; justify-items: center; line-height: 1; }
-  .logo .mono { font-family: var(--display); font-size: 34px; position: relative; }
-  .logo small { font-family: var(--serif); font-size: 8.5px; letter-spacing: .3em; text-transform: uppercase; margin-top: 4px; color: var(--ink-soft); }
+  .logo .mono { font-family: var(--display); font-size: 24px; position: relative; }
+  .logo small { font-family: var(--serif); font-size: 7.5px; letter-spacing: .3em; text-transform: uppercase; margin-top: 2px; color: var(--ink-soft); }
   .top-right { justify-self: end; display: flex; gap: 22px; align-items: center; }
   .top-right svg { width: 16px; height: 16px; }
-  .drawer { position: fixed; inset: 76px 0 auto 0; background: var(--cream); border-bottom: 1px solid var(--line); z-index: 40; transform: translateY(-120%); transition: transform .5s ease; }
+  .drawer { position: fixed; inset: 56px 0 auto 0; background: var(--cream); border-bottom: 1px solid var(--line); z-index: 40; transform: translateY(-120%); transition: transform .5s ease; }
   .drawer.open { transform: none; }
-  .drawer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding: 28px 16px; }
-  .drawer a { font-family: var(--display); font-style: italic; font-size: 26px; }
+  .drawer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; padding: 14px 16px; }
+  .drawer a { font-family: var(--serif); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
   .drawer a:hover { color: var(--gold); }
   @media (max-width: 640px) { .top-right .more-link { display: none; } }
 
@@ -356,12 +356,9 @@
 <div class="drawer" id="drawer">
   <nav>
     <a href="#little">Little Things</a>
-    <a href="#lens">Learning to See</a>
-    <a href="#diary">Visual Diary</a>
     <a href="#colors">Colors of Life</a>
-    <a href="#art">Art That Makes Us Think</a>
+    <a href="#art">Art &amp; Reflections</a>
     <a href="#people">Kindness &amp; Courage</a>
-    <a href="#stories">Stories Behind the Frame</a>
   </nav>
 </div>
 
