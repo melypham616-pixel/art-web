@@ -332,6 +332,10 @@
   .story-card .credit { font-family: var(--serif); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
   .story-card p { margin: 12px 0 0; font-size: 14px; line-height: 1.75; color: var(--ink-soft); }
 
+  .credit-line { margin: 10px 0 0; text-align: right; font-family: var(--serif); font-size: 12px; color: var(--ink-soft); }
+  .credit-line.dark { color: #9a8f82; }
+  .full-page { display: inline-block; margin-top: 18px; }
+
   /* reveal */
   .rv { opacity: 0; transform: translateY(18px); transition: opacity 1s ease, transform 1s ease; }
   .rv.in { opacity: 1; transform: none; }
@@ -355,10 +359,10 @@
 </header>
 <div class="drawer" id="drawer">
   <nav>
-    <a href="#little">Little Things</a>
-    <a href="#colors">Colors of Life</a>
-    <a href="#art">Art &amp; Reflections</a>
-    <a href="#people">Kindness &amp; Courage</a>
+    <a href="little-things.html">Little Things</a>
+    <a href="colors-of-life.html">Colors of Life</a>
+    <a href="art-and-reflections.html">Art &amp; Reflections</a>
+    <a href="kindness-and-courage.html">Kindness &amp; Courage</a>
   </nav>
 </div>
 
@@ -369,6 +373,7 @@
     <h1 class="rv">The Art of Ordinary Things</h1>
     <p class="lede rv">To see like a painter is to notice<br class="br-md"> The quiet beauty hiding in everyday things.</p>
     <div class="ph rv"><img class="film" src="art/hammershoi-sunlight.jpg" width="1280" height="1122" fetchpriority="high" alt="Vilhelm Hammershøi, Sunshine on the floor, Strandgade 30 (1901)" style="object-position:50% 60%"></div>
+    <p class="credit-line">Vilhelm Hammershøi, <i>Sunshine on the Floor</i>, 1901</p>
 
     <div class="features">
       <div class="feature rv">
@@ -399,6 +404,7 @@
         <span class="eyebrow">Chapter I</span>
         <h2>Little Things</h2>
         <p>Photo collections, gathered by theme. Small objects and quiet corners that hold a whole story.</p>
+        <a class="more-link full-page" href="little-things.html">Open the full collection ↗</a>
       </div>
       <div class="chips" role="group" aria-label="Filter collections">
         <button aria-pressed="true" data-f="all">All</button>
@@ -549,6 +555,7 @@
           <h2>Colors of Life</h2>
         </div>
         <p>Photo sets arranged by palette — the colors a place leaves behind after you’ve gone. Choose a palette to see the frames that share it.</p>
+        <a class="more-link full-page" href="colors-of-life.html">See all four palettes ↗</a>
       </div>
       <div class="palettes" id="palettes" role="group" aria-label="Choose a palette"></div>
       <div class="color-grid" id="color-grid"></div>
@@ -566,6 +573,7 @@
         <span class="eyebrow">Chapter V</span>
         <h2>Art That Makes Us Think</h2>
         <p>Famous works that found something extraordinary in ordinary life — and a few lines on what each one makes me feel.</p>
+        <a class="more-link full-page" href="art-and-reflections.html">Visit the exhibition ↗</a>
       </div>
       <div class="exhibits">
         <figure class="exhibit rv">
@@ -650,6 +658,7 @@
         <span class="eyebrow">Chapter VI</span>
         <h2>Kindness &amp; Courage</h2>
         <p>Photographs of ordinary people in hard times — of sharing, holding on, and carrying on.</p>
+        <a class="more-link full-page" href="kindness-and-courage.html">Read the full series ↗</a>
       </div>
       <p class="people-quote rv">When life had very little to give, people still found something to give each other.</p>
       <div class="people-grid">
@@ -763,7 +772,7 @@
 <footer id="subscribe">
   <div class="wrap">
     <div class="foot-cta">
-      <div class="ph rv"><img class="film" loading="lazy" src="art/courbet-studio.jpg" alt="Gustave Courbet, The Painter’s Studio (1855)"></div>
+      <figure class="rv" style="margin:0"><div class="ph"><img class="film" loading="lazy" src="art/courbet-studio.jpg" alt="Gustave Courbet, The Painter’s Studio (1855)"></div><figcaption class="credit-line dark">Gustave Courbet, <i>The Painter’s Studio</i>, 1855</figcaption></figure>
       <div class="rv">
         <span class="eyebrow" style="color:var(--gold)">The monthly letter</span>
         <h2>Slow down,<br>and look again.</h2>
